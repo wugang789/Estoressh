@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mycompany.entity">
+	<class name="OrderDetailEntity" table="t_orderdetail" lazy="false" >
+		<id name="id" >
+			<generator class="identity"/>
+		</id>
+		<property name="price" />
+		<property name="number" />
+		<property name="goodsName" />
+		<set name="goods" table="odergoods">
+		<key column="odid"></key>
+		<many-to-many column="goodsid" class="GoodsEntity"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

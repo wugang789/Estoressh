@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <constant name="struts.devMode" value="false" />
+<constant name="struts.action.extension" value="do"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+  <package name="allGoods" extends="struts-default">
+  <!-- 显示所有的商品 -->
+    <action name="findallgoods" class="com.mycompany.goods.action.GoodsAction" 
+             method="FindAllGoods">
+     <result name="allgoods" type="redirectAction">searchSpecial.do</result>
+    </action>
+    
+    <!--查询商品  -->
+    <action name="SearchGoods" class="com.mycompany.goods.action.GoodsAction" 
+            method="SearchGoods">
+            <result name="searchgoods" type="redirect">/SearchGoodsResult.jsp</result>
+            <result name="searchfail" type="redirect">/searchjsp/SearchGoodsResult.jsp</result>
+            </action>
+            
+        <!-- 查询特价商品【首页】 -->
+        <action name="searchSpecial" class="com.mycompany.goods.action.GoodsAction" 
+                 method="searchSpecialGoods">
+         <result name="special" type="redirect">/index.jsp</result>
+         </action>    
+      
+      <!--用户登录  -->
+      <action name="LoginAction" class="com.mycompany.goods.action.LoginAction"
+               method="UserLogin">
+               <result name="loginsuccess">/index1.jsp</result>
+               <result name="userloginerror">/jsp/Error.jsp</result>
+               <result name="input">/Login.jsp</result>
+      </action>
+      
+        <!-- 用户注销 -->      
+      <action name="LoginOut" class="com.mycompany.goods.action.LoginAction"
+              method="UserLoginOut">
+               <result name="loginout">/index1.jsp</result>
+      </action>
+      
+  </package>
+  
+  <!-- 引入struts-register.xml -->
+   <include file="struts-register.xml">
+   </include>
+   <include file="struts-goodsbuy.xml">
+   </include>
+   <include file="struts-manager.xml" />
+</struts>

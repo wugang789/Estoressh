@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mycompany.entity">
+	<class name="OrderEntity" table="t_orderentity" >
+		<id name="id" >
+			<generator class="identity"/>
+		</id>
+		<property name="name" />
+		<property name="reallyName" />
+		<property name="address" />
+		<property name="tel" />
+		<property name="post" />
+		<property name="pay" />
+		<property name="bz" />
+		<property name="sign" />
+		<property name="orderNumber" />
+		<property name="dateTime" type="date" />
+		<property name="isManagerDeleteOrder" />
+		<property name="isUserDeleteOrder" />
+		
+		<set name="orderDetailEntities" cascade="save-update" inverse="true" lazy="false">
+		<key column="oder_id" />
+		<one-to-many class="OrderDetailEntity"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

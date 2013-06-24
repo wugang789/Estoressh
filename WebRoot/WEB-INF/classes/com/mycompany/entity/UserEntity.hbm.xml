@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mycompany.entity">
+	<class name="UserEntity" table="t_user">
+		<id name="id">
+			<generator class="identity" />
+		</id>
+		<property name="age" />
+		<property name="email" />
+		<property name="name"  />
+		<property name="password" />
+		<property name="profession" />
+		<property name="question" />
+		<property name="reallyname" />
+		<property name="result" />
+		<property name="sex" />
+		<property name="ismanager" />
+		<property name="isDelete" />
+		<set name="orderEntities" cascade="save-update" inverse="true"
+			lazy="false">
+			<key column="user_id" />
+			<one-to-many class="OrderEntity" />
+		</set>
+		<!-- inverse: 反转,当多的一端级联影响到一的一端的时候,将控制权交给一的一端 -->
+	</class>
+	<sql-query name="ww" callable="true">
+		<return class="com.mycompany.entity.UserEntity" alias="stu">
+		    <return-property name="age" column="age"></return-property>
+			<return-property name="name" column="name"></return-property>
+		</return>
+		{?=call ww()}<!-- 调用存储过程g· -->
+	</sql-query>
+</hibernate-mapping>

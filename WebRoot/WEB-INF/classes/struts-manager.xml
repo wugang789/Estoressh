@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+  <package name="addmanagerstruts" extends="struts-default" >
+      <!-- 添加管理员 -->
+    <action name="addmanager" class="com.mycompany.manager.action.addManagerAction" 
+             method="addManager">
+     <result name="success">/addmanagerjsp/addManagerSuccess.jsp</result>
+    </action>
+     
+     <!-- 添加大类商品 -->
+     <action name="addBigtype" class="com.mycompany.manager.action.managerAddGoodsAction"
+              method="addBigtypeGoods">
+          <result name="addsuccess">/addgoodsjsp/addGoodsSuccess.jsp</result> 
+     </action>
+     <!-- 添加小类商品 -->
+     <action name="addSmalltype" class="com.mycompany.manager.action.managerAddGoodsAction"
+              method="addSmalltypeGoods">
+              <result name="smallsuccess">/addgoodsjsp/addGoodsSuccess.jsp</result>
+     </action>
+     <!-- 查找大类商品 -->
+     <action name="findbigtypegoods" class="com.mycompany.manager.action.findManagerGoodsAction"
+             method="findBigtypeGoods">
+          <result name="success">/addgoodsjsp/addSmalltype.jsp</result>
+      </action>
+      
+      <!-- 查找小类商品 -->
+      <action name="findsmalltype" class="com.mycompany.manager.action.findManagerGoodsAction"
+               method="findSmalltypeGoods">
+          <result name="slsuccess">/addgoodsjsp/addGoods.jsp</result>
+      </action>
+      
+      <!-- 添加商品 -->
+      <action name="addgoodsmanager" class="com.mycompany.manager.action.managerAddGoodsAction"
+              method="addGoods">
+         <result name="goods">/addgoodsjsp/addGoodsSuccess.jsp</result>
+      </action>
+      
+      
+      <!-- 删除商品 -->
+      <action name="deletegoods" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="deleteGoods">
+              <result></result>
+      </action>
+      
+      <!-- 查询所有商品 -->
+      <action name="findallgoodsmanager" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="findAllGoods">
+       <result name="findgoods">/addmanagerjsp/deleteGoods.jsp</result>       
+       </action>
+      
+      <!-- 通过ID查询商品 -->
+      <action name="findgoodsbyid" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="findGoodsById">
+       <result name="findsuccess">/addmanagerjsp/detailInfo.jsp</result>
+      </action>
+      
+      <!-- 修改商品信息 -->
+      <action name="modifygoodsinfo" class="com.mycompany.manager.action.managerAddGoodsAction"
+              method="modifyGoodsInfo">
+       <result name="modifysuccess">/addmanagerjsp/modifySuccess.jsp</result>       
+       </action>
+      
+      <!-- 商品信息删除 -->
+      <action name="deletegoodsinfo" class="com.mycompany.manager.action.managerAddGoodsAction"
+               method="deleteGoodsInfo">
+       <result name="deletesuccess" type="redirectAction">findallgoodsmanager.do</result>        
+       </action>
+      
+      <!-- 查询商品，类别信息 -->
+      <action name="findgoodsunion" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="findGoodsUnion">
+       <result name="findsuccess">/addmanagerjsp/findSmallOrbigtype.jsp</result>  
+       <result name="findbig">/addmanagerjsp/findBigtype.jsp</result>
+       <result name="findsmall">/addmanagerjsp/findSmalltype.jsp</result>     
+       </action>
+      
+      <!-- 查询所有管理员 -->
+      <action name="findallmanager" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="findManager">
+       <result name="findsuccess">/addmanagerjsp/findAlllManager.jsp</result>
+       </action>
+      
+      <!-- 管理员删除 -->
+      <action name="deletemanager" class="com.mycompany.manager.action.findManagerGoodsAction"
+              method="deleteManager">
+       <result name="deletesuccess">/addmanagerjsp/deleteManagerSuccess.jsp</result>
+       </action>
+       <!-- 会员管理 -->
+      <action name="findallmember" class="com.mycompany.manager.action.memberManagerAction"
+              method="findAllMember">
+      <result name="findallmember">/addmanagerjsp/memberManger.jsp</result>
+      </action>
+       <!-- 会员删除 -->
+      <action name="deletemember" class="com.mycompany.manager.action.memberManagerAction"
+              method="deleteMember">
+      <result name="success" type="redirectAction">findallmember.do</result>
+      </action>
+        <!-- 会员查询 -->
+      <action name="findmember" class="com.mycompany.manager.action.memberManagerAction"
+              method="findMember">
+      <result name="seekmember">/addmanagerjsp/findMember.jsp</result>
+      <result name="success">/addmanagerjsp/findFail.jsp</result>
+      </action>
+     
+  </package>
+</struts>

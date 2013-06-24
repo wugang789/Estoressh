@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mycompany.entity">
+	<class name="BigType" table="t_BigType" >
+		<id name="id" >
+			<generator class="identity" />
+		</id>
+		<property name="bigname" />
+		<set name="smallTypes">
+		<key column="bigid" />
+		<one-to-many class="SmallType" />
+		</set>
+	</class>
+</hibernate-mapping>

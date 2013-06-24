@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+ <package name="register" extends="struts-default,json-default">
+     <!-- 用户注册 -->
+    <action name="register" class="com.mycompany.goods.action.UserRegisterAction" 
+             method="registerUser">
+     <interceptor-ref name="paramsPrepareParamsStack" />
+     <result name="registersuccess" type="redirect">/Login.jsp</result>
+     <result name="input">userRegister.jsp</result>
+    </action>
+    
+    <!-- 判断这个用户是否可以注册 -->
+    <action name="finduserexist" class="com.mycompany.goods.action.UserRegisterAction"
+            method="FindUserExist">
+    </action>
+    
+    <!-- 找回密码 -->
+    <action name="findpw" class="com.mycompany.goods.action.PassWordAction" 
+            method="FindUserPassWord">
+            <result name="findpassword">/userpasswordFind2.jsp</result>
+            <result name="error">/jsp/Error.jsp</result>
+    </action>
+    
+    <!-- 确认答案是否正确 -->
+    <action name="sureanswer" class="com.mycompany.goods.action.PassWordAction"
+            method="SurePassWord">
+            <result name="error">/jsp/Error.jsp</result>
+            <result name="findpassword3">/userpasswordFind3.jsp</result>       
+     </action>
+     
+     <!-- 确认更改密码 -->
+     <action name="modifypw" class="com.mycompany.goods.action.PassWordAction"
+              method="SureModifyPassword">
+     <result name="suremodifypw">/jsp/ModifySuccess.jsp</result>
+     </action>
+     <!-- 验证码判断 -->
+    <action name="managerloginbehind" class="com.mycompany.goods.action.LoginAction"
+              method="ManagerLoginBehind">
+     </action>
+     <!--后台用户登录 -->
+     <action name="loginmanager" class="com.mycompany.goods.action.LoginAction"
+              method="loginManager" >
+     </action>
+     
+     
+  </package>
+</struts>

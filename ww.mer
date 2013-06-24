@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ERDiagram version="1.1">
+  <Connection session="com.microsoft.sqlserver.jdbc.SQLServerDriver" database="myshopping" schema="dbo" />
+  <Drawing gridVisible="false" snapOn="false" fastRouting="false" labelsVisible="true" />
+  <Tables>
+    <Table name="odergoods">
+      <Drawing expanded="false" location="309,-82" dimensions="139,70" />
+      <Columns>
+        <Column name="goodsid" primary_key="true" foreign_key="true" required="true" unique="true">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="odid" primary_key="true" foreign_key="true" required="true" unique="true">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_BigType">
+      <Drawing expanded="false" location="118,204" dimensions="186,70" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="bigname" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_SmallType">
+      <Drawing expanded="false" location="85,69" dimensions="200,90" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="smallName" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="bigid" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_goods">
+      <Drawing expanded="false" location="503,108" dimensions="208,290" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="goodsname" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="goodsfrom" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="createtime" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="10" />
+        </Column>
+        <Column name="introduce" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="originalprice" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10,2" />
+        </Column>
+        <Column name="currentprice" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10,2" />
+        </Column>
+        <Column name="number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="picture" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="discount" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="freight" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="numeric" size="10,2" />
+        </Column>
+        <Column name="stock" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="smallid" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_orderdetail">
+      <Drawing expanded="false" location="333,212" dimensions="208,130" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="price" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="float" size="53" />
+        </Column>
+        <Column name="number" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="goodsName" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="oder_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_orderentity">
+      <Drawing expanded="false" location="630,39" dimensions="269,310" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="reallyName" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="address" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="tel" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="post" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="pay" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="bz" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="sign" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="orderNumber" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="dateTime" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="10" />
+        </Column>
+        <Column name="isManagerDeleteOrder" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="isUserDeleteOrder" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="user_id" primary_key="false" foreign_key="true" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="t_user">
+      <Drawing expanded="false" location="101,9" dimensions="198,270" />
+      <Columns>
+        <Column name="id" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="int identity" size="10" />
+        </Column>
+        <Column name="age" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="date" size="10" />
+        </Column>
+        <Column name="email" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="name" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="password" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="profession" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="question" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="reallyname" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="result" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="sex" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="varchar" size="255" />
+        </Column>
+        <Column name="ismanager" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+        <Column name="isDelete" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="int" size="10" />
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Relationships>
+    <Relationship name="FK84DF1754CD4CF529">
+      <Details primary_table="t_goods" foreign_table="odergoods">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="goodsid" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK84DF1754FC2B73D1">
+      <Details primary_table="t_orderdetail" foreign_table="odergoods">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="odid" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK3593D6B6DA8E9154">
+      <Details primary_table="t_BigType" foreign_table="t_SmallType">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="bigid" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FKA04ED3CB5DD54462">
+      <Details primary_table="t_SmallType" foreign_table="t_goods">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="smallid" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK6BABBDD4B93EBD68">
+      <Details primary_table="t_orderentity" foreign_table="t_orderdetail">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="oder_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+    <Relationship name="FK6DDF8966762BBE5E">
+      <Details primary_table="t_user" foreign_table="t_orderentity">
+        <PrimaryKeys>
+          <ColumnName name="id" />
+        </PrimaryKeys>
+        <ForeignKeys>
+          <ColumnName name="user_id" />
+        </ForeignKeys>
+      </Details>
+      <Drawing routingType="0" />
+    </Relationship>
+  </Relationships>
+</ERDiagram>
+

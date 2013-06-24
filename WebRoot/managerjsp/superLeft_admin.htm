@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+.mydiv{
+margin-left:10px;
+}
+a{
+text-decoration: none;
+
+}
+a:HOVER {
+	color:maroon;
+}
+</style>
+<script language="javascript" type="text/javascript">
+ var i=1;
+function show(show,hidden){
+  ++i;
+ 
+ if(i%2!=0){
+    document.getElementById(show).style.display="none";
+ document.getElementById(hidden).style.display="none";
+ }else{
+ document.getElementById(show).style.display="block";
+ document.getElementById(hidden).style.display="none";
+ }
+}
+</script>
+<body>
+
+<div style="float:left ">
+<div >
+ <img src="../managerpicture/menu3.gif"/>
+ <div style="margin-top: -56px;margin-left: 20px;">
+  <font size="2">系统管理</font>
+ </div>
+</div>
+<img src="../managerpicture/run.jpg" style=" background-repeat:no-repeat;
+margin-top:10px; margin-left:0px;" height="560px;">
+    <div style="margin-top:-550px; " class="mydiv">
+     <a href="javascript:show('m1','m2')" >商品信息维护</a>
+     </div>
+	   <div style="margin-left:20px; display:none;" id="m1"> 
+	    <a href="javascript:show('m3','m4')"><font size="3">商品信息</font></a><br/>
+	    <div style="margin-left:20px; display:none;" id="m3">
+	       <a href="../addgoodsjsp/addGoods.jsp" target="mainFrame">商品添加</a><br />
+	       <a href="findallgoodsmanager.do" target="mainFrame">商品删除与特价设置</a><br />
+	    </div>
+	    <a href="javascript:show('m4','m5')"><font size="3">商品类别</font></a>
+	     <div style="margin-left:20px; display:none;" id="m4">
+	       <a href="../addgoodsjsp/addBigType.jsp" target="mainFrame">大类别添加</a><br />
+	       <a href="../addgoodsjsp/addSmalltype.jsp" target="mainFrame">小类别添加</a><br />
+	       <a href="../addmanagerjsp/findSmallOrbigtype.jsp" target="mainFrame">商品类别查询</a>
+	    </div>
+	   </div>
+	    <div style="margin-top:5px; " class="mydiv">
+             <a href="javascript:show('m5','m2')" >商城信息管理</a><br />
+        <div style="margin-left:20px; display:none;" id="m5">
+           <a href="javascript:show('m99','m55')">订单管理</a><br />
+           <div style="margin-left:20px;display:none;" id="m99">
+	       <a href="findallorderlist.do" target="mainFrame">所有订单</a><br />
+	       <a href="findalreadysendorder.do?orderSign=是" target="mainFrame">已出货订单</a><br />
+	       <a href="findnotsendorder.do?orderSign=否" target="mainFrame">未出货订单</a><br />
+	    </div>
+	    </div>
+	    </div>
+	     <div style="margin-top:5px; " class="mydiv">
+        <a href="javascript:show('m6','m2')" >用户管理</a>
+        <div style="margin-left:20px; display:none;" id="m6">
+	       <a href="javascript:show('m7','m2')">会员管理</a><br />
+	 <div style="margin-left:20px; display:none;" id="m7">
+	       <a href="findallmember.do" target="mainFrame">会员删除</a><br />
+	       <a href="../addmanagerjsp/findMember.jsp" target="mainFrame">会员查询</a><br />
+	  </div>
+	    </div>
+        </div>
+ </div>
+</body>
+</html>

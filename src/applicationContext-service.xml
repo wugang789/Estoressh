@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for JPetStore's business layer.
+  - Contains bean references to the transaction manager and to the DAOs in
+  - dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!-- 商品显示......前台页面 -->
+	<bean id="goodsservice" class="com.mycompany.service.impl.GoodsDaoServiceImpl">
+		<property name="GoodsDao" ref="Goodsdao"></property>
+	</bean>
+
+
+    <!-- 管理员添加service -->
+    <bean id="managerDaoService" class="com.mycompany.service.impl.managerDaoServiceImpl">
+     <property name="addManagerDao" ref="addManagerDao"></property>
+    </bean>
+    
+    <!-- 管理员添加大类商品，添加商品  -->
+    <bean id="managerAddGoodsService" class="com.mycompany.service.impl.managerAddGoodsImpl">
+       <property name="addGoodsManager" ref="addGoodsManager"></property>
+    </bean>
+    
+    <!-- 查找大类的商品，小类的商品 -->
+    <bean id="findManagerDaoService" class="com.mycompany.service.impl.findManagerDaoServiceImpl">
+     <property name="findManagerGoodsDao" ref="findManagerGoodsDao"></property>
+    </bean>
+    
+    <!--注册 -->
+    <bean id="userDaoService" class="com.mycompany.service.impl.UserDaoServiceImpl">
+      <property name="userDao" ref="userDao"></property>
+    </bean>
+    <!-- 提交订单 -->
+    <bean id="ordersubmitservice" class="com.mycompany.service.impl.orderSubmitServiceImpl">
+    <property name="odersubmit" ref="odersubmit"></property>
+    </bean>
+     <!-- 提交订单 -->
+    <bean id="memberManagerDaoService" class="com.mycompany.service.impl.memberManagerDaoServiceImpl">
+    <property name="membermanager" ref="membermanager"></property>
+    </bean>
+</beans>

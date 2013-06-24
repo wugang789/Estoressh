@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+  <package name="finddetailinfo" extends="struts-default,json-default">
+  
+    <!-- 查询单个商品的详细信息 -->
+    <action name="finddetail" class="com.mycompany.goods.action.SingleGoodsInfoAction" 
+             method="FindSingledetail">
+     <result name="finddetail" type="redirect">GoodsDetailInfo.jsp</result>
+    </action>
+    <!-- 购物车创建 -->
+    <action name="createShoppingCart" class="com.mycompany.goods.action.CreateShoppingCart"
+            method="saveShoppingCart">
+    </action>
+    <!-- 获取购物数量 -->
+    <action name="getCartNum" class="com.mycompany.goods.action.CreateShoppingCart"
+            method="getShoppingCartNum">
+    </action>
+    <!-- 立即购买商品 -->
+    <action name="immediatelyBuyGoods" class="com.mycompany.goods.action.CreateShoppingCart"
+            method="immediatelyBuyGoods">
+      <result name="cartshopping">/jsp/shoppingCart.jsp</result>
+    </action>
+    <!-- 订单提交 -->
+       <action name="submitOrder" class="com.mycompany.goods.action.CreateShoppingCart"
+               method="submitOrderList">
+           <result name="submitorder" type="redirect">/jsp/submitOrderSuccess.jsp</result>
+       </action>
+       <!-- 判断session是否为空 -->
+    <action name="checkShopping" class="com.mycompany.goods.action.CreateShoppingCart"
+               method="checkShoppingCart">
+       </action>
+        <!-- 清空购物车 -->
+    <action name="clearShoppingCart" class="com.mycompany.goods.action.CreateShoppingCart"
+               method="clearShoppingCart">
+               <result name="clear" type="redirect">/jsp/shoppingCart.jsp</result>
+       </action>
+       <!-- 查看已购买的宝贝 -->
+       <action name="findAlreaybuygoods" class="com.mycompany.goods.action.CreateShoppingCart"
+               method="findAlreayBuyGoods">
+       </action>
+       <!-- 验证码 -->
+           <action name="rand" class="com.mycompany.goods.action.LoginAction"
+              method="ManagerLogin">  
+           <result type="stream" >  
+                   <param name="contentType">image/jpeg</param>
+            </result> 
+     </action> 
+     <!-- 查询所有订单 --> 
+     <action name="findallorderlist" class="com.mycompany.goods.action.CreateShoppingCart"
+             method="findAllOrderList">
+             <result name="findallorderlist">/orderlist/allOrderList.jsp</result>
+      </action>
+      <!-- 查询单个订单详细信息 -->
+      <action name="findsingleorderlist" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="findSingleOrderList">
+       <result name="findsingleorderlist">/orderlist/orderDetailInfo.jsp</result>
+      </action>
+      <!-- 发货操作 -->
+         <action name="sendgoods" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="sendGoods">
+       <result name="sendgoods" type="redirectAction">findallorderlist.do</result>
+      </action>
+      
+      <!--查询已经发货操作 -->
+         <action name="findalreadysendorder" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="findAlreadySendOrder">
+       <result name="sendgoods">/orderlist/alreadySendOrder.jsp</result>
+      </action>
+      
+        <!--查询未发货操作 -->
+         <action name="findnotsendorder" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="findNotSendOrder">
+       <result name="sendgoods">/orderlist/notSendOrder.jsp</result>
+      </action>
+       <!--管理员删除订单操作 -->
+         <action name="deleteorderlist" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="deleteOrderList">
+       <result name="sendgoods" type="redirectAction">findallorderlist.do</result>
+      </action>
+      <!-- 用户删除订单 -->
+      <action name="userdeleteorderList" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="userDeleteOrderList">
+       <result name="success" type="redirectAction">finddeletealreadybuygoods.do</result>
+      </action>
+      <action name="finddeletealreadybuygoods" class="com.mycompany.goods.action.CreateShoppingCart"
+              method="findDeleteAlreadyBuyGoods">
+              <result name="success">/jsp/myOrderList.jsp</result>
+      </action>
+      
+  </package>
+</struts>

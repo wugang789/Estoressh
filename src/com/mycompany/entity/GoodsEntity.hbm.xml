@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mycompany.entity" >
+	<class name="GoodsEntity" table="t_goods" lazy="false">
+		<id name="id" >
+			<generator class="identity"/>
+		</id>
+		<property name="goodsname" />
+		<property name="goodsfrom" />
+		<property name="createtime" />
+		<property name="introduce" />
+		<property name="originalprice" />
+		<property name="currentprice" />
+		<property name="number" />
+		<property name="picture" />
+		<property name="discount" />
+		<property name="freight" />
+		<property name="stock" />
+		<set name="orderDetail" table="odergoods">
+		<key column="goodsid"></key>
+		<many-to-many column="odid" class="OrderDetailEntity"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

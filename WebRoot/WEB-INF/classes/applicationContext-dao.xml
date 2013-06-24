@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for JPetStore's business layer.
+  - Contains bean references to the transaction manager and to the DAOs in
+  - dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+			<!-- 所有商品显示。。前台页面 -->
+			<bean id="Goodsdao" class="com.mycompany.dao.impl.GoodsDaoimpl">
+			 <property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+			
+			<!-- 管理员添加 -->
+			<bean id="addManagerDao" class="com.mycompany.dao.impl.addManagerImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+			
+			<!-- 管理员大类商品添加，添加商品 -->
+			<bean id="addGoodsManager" class="com.mycompany.dao.impl.addGoodsManagerImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+			
+			<!-- 查找大类商品 ，小类商品，通过ID 查询商品信息-->
+			 <bean id="findManagerGoodsDao" class="com.mycompany.dao.impl.findManagerGoodsDaoImpl">
+			 <property name="sessionFactory" ref="sessionFactory"></property>
+			 </bean>
+			 
+			 <!-- 注册 -->
+			 <bean id="userDao" class="com.mycompany.dao.impl.UserDaoimpl">
+			 <property name="sessionFactory" ref="sessionFactory"></property>
+			 </bean>
+			 
+			 <!-- 订单提交 -->
+			  <bean id="odersubmit" class="com.mycompany.dao.impl.orderSubmitDaoImpl">
+			  <property name="sessionFactory" ref="sessionFactory"></property>
+			  </bean>
+			  <!-- 会员查询 -->
+			<bean id="membermanager" class="com.mycompany.dao.impl.memberManagerDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+</beans>

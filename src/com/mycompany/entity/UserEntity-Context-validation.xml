@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message>用户名不能为空!</message>
+		</field-validator>
+			<field-validator type="stringlength">
+			<param name="maxLength">10</param>
+			<param name="minLength">4</param>
+			<message>用户名必须在4-10之间!</message>
+		</field-validator>
+	</field>
+	
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message>密码不能为空!</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">12</param>
+			<param name="minLength">6</param>
+			<message>用户密码必须在6-12之间!</message>
+		</field-validator>
+	</field>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>电子邮件不能为空!</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>电子邮件格式不正确!</message>
+		</field-validator>
+	</field>
+	<field name="reallyname">
+	<field-validator type="requiredstring">
+	   <message>真实姓名不能为空!</message>
+	</field-validator>
+	</field>
+	<field name="question">
+	<field-validator type="requiredstring">
+   <message>找回密码问题不能为空!</message>	
+	</field-validator>
+	</field>
+	<field name="result">
+	<field-validator type="requiredstring">
+	<message>找回密码答案不能为空!</message>
+	</field-validator>
+	</field>
+	
+</validators> 	
